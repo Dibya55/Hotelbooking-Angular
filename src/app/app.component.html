@@ -1,0 +1,9 @@
+<div class="container1">
+  <div class="header">
+    <p class="font labelHeading" routerLink="/home">Tribo</p>
+    <p class="font1 labelHeading" *ngIf ="authService.loggedInStatus" (click) = "logOut()">Logout</p>
+  </div>
+  <div class="content">
+    <router-outlet></router-outlet>
+  </div>
+</div>

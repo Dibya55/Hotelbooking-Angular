@@ -1,0 +1,73 @@
+<div class="sideNav">
+    <div class="row">
+        <div class="col-3">
+            <div class="sidebar">
+                <ul>
+                    <li><a (click)="showTrips()">Home</a></li>
+                    <li><a routerLink="/hotel">Bookings</a></li>
+                    <li><a (click)="onToggle()">Cancellation</a></li>
+                    <li><a routerLink="/contact">Contact Us</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="col-9 mt-2">
+            <h4 class="labelname">Welcome , {{ user?.name }}</h4>
+            <p>Your Email:{{user.email}}</p>
+            <ng-container *ngIf="showRecentTrips">
+                <h2>Your Recent Trips</h2>
+                <div class="row">
+                    <div class="col-12">
+                        <div class="border" *ngFor="let trip of tripService.recentTrips">
+                            <div class="row">
+                                <div class="col-4">
+                                    <div class="summary-heading">Hotel name</div>
+                                    <div class="summary-content">{{ trip.hotelName }}</div>
+                                </div>
+                                <!-- <div class="col-3">
+                                    <div class="summary-heading">Destination</div>
+                                    <div class="summary-content"> {{ trip.destination }}</div>
+                                </div> -->
+                                <div class="col-4">
+                                    <div class="summary-heading">Start Date</div>
+                                    <div class="summary-content"> {{ trip.startDate | date }}</div>
+                                </div>
+                                <div class="col-4">
+                                    <div class="summary-heading">End Date</div>
+                                    <div class="summary-content">{{ trip.endDate | date }}</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </ng-container>
+
+            <ng-container>
+                <div class="col-12" *ngIf="showUpcomingtrips">
+                    <h2>Your Upcoming Trips</h2>
+                    <div class="row border" *ngFor="let trip of tripService.upcomingTrips;let i = index">
+                        <div class="col-4">
+                            <div class="summary-heading">Hotel name</div>
+                            <div class="summary-content">{{ trip.hotelName }}</div>
+                        </div>
+                        <div class="col-4">
+                            <div class="summary-heading">Start Date</div>
+                            <div class="summary-content"> {{ trip.startDate | date }}</div>
+                        </div>
+                        <div class="col-4">
+                            <div class="summary-heading">End Date</div>
+                            <div class="summary-content">{{ trip.endDate | date }} <button *ngIf="cancelButton"
+                                    (click)="deleteTrip(i)" class="btn btn-danger margin">Cancel
+                                    This
+                                    Trip</button></div>
+                        </div>
+                    </div>
+                </div>
+            </ng-container>
+
+            <ng-container *ngIf="!showUpcomingtrips">
+                <h2>You don't have any upcoming trips.</h2>
+            </ng-container>
+
+        </div>
+    </div>
+</div>

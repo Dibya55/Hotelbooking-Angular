@@ -1,0 +1,37 @@
+.container1 {
+    overflow-x: hidden;
+}
+
+.header {
+    display: flex;
+    width: 100vw;
+    background-color: black;
+    color: white;
+    position: static;
+    top: 0;
+    left: 0;
+    /* background-color: blue; */
+    height: 6vh;
+    opacity: 888;
+}
+
+/* .content {
+    margin-top: 4.5rem;;
+} */
+
+.font {
+    font-size: 23px;
+    margin-left: 10px;
+    cursor: pointer;
+}
+
+.font1 {
+    font-size: 23px;
+    margin-left: 69rem;
+    cursor: pointer;
+}
+
+.labelHeading {
+    padding: 5px;
+    margin-top: 5px;
+}

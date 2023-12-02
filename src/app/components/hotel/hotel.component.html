@@ -1,0 +1,30 @@
+<div class="container">
+    <div class="card mt-2">
+        <h2 class="margin">Hotel Lists</h2>
+        <div class="card-body">
+            <div class="row" *ngFor="let hotel of data.hotelLists;let i = index">
+                <div class="row" (click)="navigateTo(hotel.hotelName)">
+                    <div class="col-3">
+                        <img [src]="hotel.imageUrl" />
+                    </div>
+                    <div class="col-6">
+                        <div class="hotel-heading font-size">{{hotel.hotelName}}</div>
+                        <div class="hotel-content">
+                            {{hotel.hotelContent}}
+                        </div>
+                    </div>
+                    <div class="col-3 price ">
+                        <div class="price-heading">
+                            {{hotel.cancellationInfo}}
+                        </div>
+                        <div class="priceInfo ">Rs-{{hotel.price}}</div>
+                        <div class="taxInfo price-heading ">{{hotel.taxInfo}}</div>
+                    </div>
+                    <p class="border">
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+</div>
